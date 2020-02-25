@@ -17,6 +17,7 @@ Global KeyPressDuration := 70
 Global PhoneDelay := 500
 
 CFG = GTAV_AHK.ini
+OrgStatus = false
 
 ;Delay between keystrokes and press duration.
 setkeydelay, %KeySendDelay%, %KeyPressDuration%
@@ -202,6 +203,7 @@ Hotkey, %VisitorChipsKey%, VisitorChips
 Hotkey, %SpinWheelKey%, SpinWheel
 Hotkey, %KillGTAKey%, KillGTA
 Hotkey, %ExitKey%, Exitlabel
+
 return
 
 ;Disables hotkeys when alt-tabbed or GTA is closed.
@@ -211,50 +213,73 @@ return
 RegisterCEO:
 InteractionMenu()
 Send {Down 6}{Enter}{Enter}
+OrgStatus = true
 return
 
 RegisterMC:
 InteractionMenu()
 Send {Down 7}{Enter}{Enter}
+OrgStatus = true
 return
 
 Disband:
 InteractionMenu()
 Send {Enter}{Up}{Enter}
+OrgStatus = false
 return
 
 SuperHeavyArmor:
 InteractionMenu()
+if (%OrgStatus% == true){
 Send {Down 3}{Enter}{Down}{Enter}
+} else {
+Send {Down 2}{Enter}{Down}{Enter}
+}
 Send {Up 3}{Enter}{m}
 return				
 
 Snack:
 InteractionMenu()
-Send {Down 3}{Enter}{Down 2}{Enter}   
+if (%OrgStatus% == true){
+Send {Down 3}{Enter}{Down 2}{Enter}  
+} else {
+Send {Down 2}{Enter}{Down 2}{Enter}   
+}
 Send {Down}{Enter 2}{m}
 return
 
 DropSnack:
 InteractionMenu()
-Send {Down 3}{Enter}{Down 2}{Enter}   
+if (%OrgStatus% == true) {
+Send {Down 3}{Enter}{Down 2}{Enter}
+} else {
+Send {Down 2}{Enter}{Down 2}{Enter}   
+}
 Send {Down}{Del}{m} 
 return
 
 Buzzard:
 InteractionMenu()
+if (%OrgStatus% == true) {
 Send {Enter}{Up 2}{Enter}
 Send {Left 3}{Down 4}{Enter}
+} else {
+PersonalAircraft()
+}
 return
 
 PersonalVehicle:
 InteractionMenu()
+if (%OrgStatus% == true) {
+Send {Down 5}{Enter}{Enter}{m}
+} else {
 Send {Down 4}{Enter}{Enter}{m}
+}
 return
 
 PersonalAircraft:
 InteractionMenu()
-Send {Down 4}{Enter}{Down}
+PersonalAircraft()
 return
 
 PassiveToggle:
@@ -370,6 +395,14 @@ Send {Enter}
 return
 
 ;Helper Functions
+PersonalAircraft(){
+if (%OrgStatus% == true) {
+Send {Down 5}{Enter}{Down}
+} else {
+Send {Down 4}{Enter}{Down}
+}
+}
+
 PhoneUp(){
 Send {Up}
 sleep, %PhoneDelay% 
