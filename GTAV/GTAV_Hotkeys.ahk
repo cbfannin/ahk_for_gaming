@@ -355,7 +355,7 @@ return
 ;CASINO
 SpinWheel:
 Send {e}{Enter}
-sleep, 5750
+sleep, 6000
 Send {s}
 return
 
@@ -364,7 +364,9 @@ Send {e}{Up}{Enter}
 sleep, 1000
 Send {e}{Down}{Tab}{Enter}
 sleep, 1000
-Send {Enter 2}
+Send {Enter}
+sleep, 1000
+Send {Enter}
 return
 
 ;Helper Functions
