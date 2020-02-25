@@ -17,7 +17,6 @@ Global KeyPressDuration := 70
 Global PhoneDelay := 500
 
 CFG = GTAV_AHK.ini
-OrgStatus = false
 
 ;Delay between keystrokes and press duration.
 setkeydelay, %KeySendDelay%, %KeyPressDuration%
@@ -210,27 +209,52 @@ return
 #IfWinActive ahk_class grcWindow
 
 ;Interaction Menu
+OrgStatus = false
+CEO = false
+MC = false
+
 RegisterCEO:
+if (!%OrgStatus% || %MC%) {
+	if (%MC%) {
+		Disband()
+		MC = false
+	}
 InteractionMenu()
 Send {Down 6}{Enter}{Enter}
 OrgStatus = true
+CEO = true
+}
 return
 
 RegisterMC:
+if (!%OrgStatus% || %CEO%) {
+	if (%CEO%) {
+		Disband()
+		CEO = false
+	}
 InteractionMenu()
 Send {Down 7}{Enter}{Enter}
 OrgStatus = true
+MC = true
+}
 return
 
 Disband:
-InteractionMenu()
-Send {Enter}{Up}{Enter}
-OrgStatus = false
+if (%OrgStatus%) {
+	if (%CEO%) {
+	 CEO = false
+	}
+	if (%MC%) {
+	 MC = false
+	}
+	Disband()
+	OrgStatus = false
+}
 return
 
 SuperHeavyArmor:
 InteractionMenu()
-if (%OrgStatus% == true){
+if (%OrgStatus%){
 Send {Down 3}{Enter}{Down}{Enter}
 } else {
 Send {Down 2}{Enter}{Down}{Enter}
@@ -240,7 +264,7 @@ return
 
 Snack:
 InteractionMenu()
-if (%OrgStatus% == true){
+if (%OrgStatus%){
 Send {Down 3}{Enter}{Down 2}{Enter}  
 } else {
 Send {Down 2}{Enter}{Down 2}{Enter}   
@@ -250,7 +274,7 @@ return
 
 DropSnack:
 InteractionMenu()
-if (%OrgStatus% == true) {
+if (%OrgStatus%) {
 Send {Down 3}{Enter}{Down 2}{Enter}
 } else {
 Send {Down 2}{Enter}{Down 2}{Enter}   
@@ -260,7 +284,7 @@ return
 
 Buzzard:
 InteractionMenu()
-if (%OrgStatus% == true) {
+if (%OrgStatus%) {
 Send {Enter}{Up 2}{Enter}
 Send {Left 3}{Down 4}{Enter}
 } else {
@@ -270,7 +294,7 @@ return
 
 PersonalVehicle:
 InteractionMenu()
-if (%OrgStatus% == true) {
+if (%OrgStatus%) {
 Send {Down 5}{Enter}{Enter}{m}
 } else {
 Send {Down 4}{Enter}{Enter}{m}
@@ -279,7 +303,11 @@ return
 
 PersonalAircraft:
 InteractionMenu()
+if (%OrgStatus%) {
+Send {Down 5}{Enter}{Down}
+} else {
 PersonalAircraft()
+}
 return
 
 PassiveToggle:
@@ -395,13 +423,16 @@ Send {Enter}
 return
 
 ;Helper Functions
+Disband(){
+InteractionMenu()
+Send {Enter}{Up}{Enter}
+}
+return
+
 PersonalAircraft(){
-if (%OrgStatus% == true) {
-Send {Down 5}{Enter}{Down}
-} else {
 Send {Down 4}{Enter}{Down}
 }
-}
+return
 
 PhoneUp(){
 Send {Up}
