@@ -16,7 +16,7 @@ Global KeyPressDuration := 70
 ;Delay between send key commands.
 Global PhoneDelay := 500
 
-CFG = GTA_AHK.ini
+CFG = GTAV_AHK.ini
 
 ;Delay between keystrokes and press duration.
 setkeydelay, %KeySendDelay%, %KeyPressDuration%
