@@ -419,7 +419,7 @@ Send {e}{Down}{Tab}{Enter}
 sleep, 1000
 Send {Enter}
 sleep, 1000
-Send {Enter}
+Send {Enter}{Esc}
 return
 
 ;Helper Functions
