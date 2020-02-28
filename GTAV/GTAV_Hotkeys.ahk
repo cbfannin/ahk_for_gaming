@@ -408,7 +408,7 @@ return
 ;CASINO
 SpinWheel:
 Send {e}{Enter}
-sleep, 6000
+sleep, 7246.875
 Send {s}
 return
 
