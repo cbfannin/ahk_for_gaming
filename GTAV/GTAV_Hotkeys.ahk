@@ -13,8 +13,8 @@ Global KeySendDelay := 100
 ;Duration each key press is held down.
 Global KeyPressDuration := 70
 
-;Delay between send key commands.
-Global PhoneDelay := 500
+;Custom Delay.
+Global Delay := 500
 
 CFG = GTAV_AHK.ini
 
@@ -68,11 +68,13 @@ Gui, Add, Text,, Join Online:
 Gui, Add, Text,, Join Friends:
 Gui, Add, Text,, Join Crew Members:
 Gui, Add, Text,, Join New Session:
+Gui, Add, Text,, Exit Game:
 Gui, Add, Text,ym,
 Gui, Add, Hotkey,vJoinOnlineKey,!o
 Gui, Add, Hotkey,vJoinFriendsKey,!f
 Gui, Add, Hotkey,vJoinCrewMembersKey,!c
 Gui, Add, Hotkey,vJoinNewSessionKey,!n
+Gui, Add, Hotkey,vExitGameKey,!e
 
 ;CASINO
 Gui, Add, Text, ym, CASINO
@@ -112,6 +114,7 @@ IniRead,Read_JoinOnlineKey,%CFG%,Hotkeys,Join Online
 IniRead,Read_JoinFriendsKey,%CFG%,Hotkeys,Join Friends
 IniRead,Read_JoinCrewMembersKey,%CFG%,Hotkeys,Join Crew Members
 IniRead,Read_JoinNewSessionKey,%CFG%,Hotkeys,Join New Session
+IniRead,Read_ExitGameKey,%CFG%,Hotkeys,Exit Game
 IniRead,Read_VisitorChipsKey,%CFG%,Hotkeys,Visitor Chips
 IniRead,Read_SpinWheelKey,%CFG%,Hotkeys,Spin Wheel
 IniRead,Read_KillGTAKey,%CFG%,Hotkeys,Kill GTA
@@ -137,6 +140,7 @@ GuiControl,,JoinOnlineKey,%Read_JoinOnlineKey%
 GuiControl,,JoinFriendsKey,%Read_JoinFriendsKey%
 GuiControl,,JoinCrewMembersKey,%Read_JoinCrewMembersKey%
 GuiControl,,JoinNewSessionKey,%Read_JoinNewSessionKey%
+GuiControl,,ExitGameKey,%Read_ExitGameKey%
 GuiControl,,VisitorChipsKey,%Read_VisitorChipsKey%
 GuiControl,,SpinWheelKey,%Read_SpinWheelKey%
 GuiControl,,KillGTAKey,%Read_KillGTAKey%
@@ -172,6 +176,7 @@ IniWrite,%JoinOnlineKey%,%CFG%,Hotkeys,Join Online
 IniWrite,%JoinFriendsKey%,%CFG%,Hotkeys,Join Friends
 IniWrite,%JoinCrewMembersKey%,%CFG%,Hotkeys,Join Crew Members
 IniWrite,%JoinNewSessionKey%,%CFG%,Hotkeys,Join New Session
+IniWrite,%ExitGameKey%,%CFG%,Hotkeys,Exit Game
 IniWrite,%VisitorChipsKey%,%CFG%,Hotkeys,Visitor Chips
 IniWrite,%SpinWheelKey%,%CFG%,Hotkeys,Spin Wheel
 IniWrite,%KillGTAKey%,%CFG%,Hotkeys,Kill GTA
@@ -198,6 +203,7 @@ Hotkey, %JoinOnlineKey%, JoinOnline
 Hotkey, %JoinFriendsKey%, JoinFriends
 Hotkey, %JoinCrewMembersKey%, JoinCrewMembers
 Hotkey, %JoinNewSessionKey%, JoinNewSession
+Hotkey, %ExitGameKey%, ExitGame
 Hotkey, %VisitorChipsKey%, VisitorChips
 Hotkey, %SpinWheelKey%, SpinWheel
 Hotkey, %KillGTAKey%, KillGTA
@@ -355,54 +361,64 @@ return
 ;Game Menu
 JoinOnline:
 Send {ESC}
-sleep, 500
+sleep, 1000
 Send {Right 5}
-sleep, 500
+sleep, 1000
 Send {Enter}
-sleep, 500
-Send {Up}
-sleep, 500
-Send {Enter}
-sleep, 500
-Send {Down}
-sleep, 500
-Send {Enter}
-sleep, 500
+sleep, %Delay%
+Send {Up}{Enter}
+sleep, %Delay%
+Send {Down}{Enter}
+sleep, %Delay%
 Send {Enter}
 return
 
 JoinFriends:
 Send {ESC}
-sleep, %PhoneDelay%
-Send {Right 2}{Enter}
-sleep, 2000
+sleep, 1000
+Send {Right}
+sleep, 1000
+Send {Enter}
+sleep, %Delay%
+Send, {Down}{Enter}
+sleep, %Delay%
 Send {Enter}
 return
 
 JoinCrewMembers:
 Send {ESC}
-sleep, %PhoneDelay%
+sleep, 1000
 Send {Right}
 sleep, 1000
 Send {Enter}
-sleep, 500
-Send {Down 5}{Enter}
-sleep, 500
+sleep, %Delay%
+Send {Down 2}{Enter}
+sleep, %Delay%
 Send {Enter}
-sleep, 500
-Send {Enter 2}
 return
 
 JoinNewSession:
 Send {ESC}
-sleep, %PhoneDelay%
+sleep, 1000
 Send {Right}
 sleep, 1000
 Send {Enter}
-sleep, 500
+sleep, %Delay%
 Send {Up 3}{Enter}
-sleep, 500
-Send {Enter 2}
+sleep, %Delay%
+Send {Enter}
+return
+
+ExitGame:
+Send {ESC}
+sleep, 1000
+Send {Right}
+sleep, 1000
+Send {Enter}
+sleep, %Delay%
+Send {Up}{Enter}
+sleep, 2000
+Send {Enter}
 return
 
 ;CASINO
@@ -436,19 +452,19 @@ return
 
 PhoneUp(){
 Send {Up}
-sleep, %PhoneDelay% 
+sleep, %Delay% 
 } 
 return
 
 ContactsList(){
 Send {Right}{Up}{Enter}
-sleep, %PhoneDelay%
+sleep, %Delay%
 }
 return
 
 InteractionMenu(){
 Send {m}
-sleep, %PhoneDelay% 
+sleep, %Delay% 
 } 
 return
 
