@@ -13,8 +13,10 @@ Global KeySendDelay := 100
 ;Duration each key press is held down.
 Global KeyPressDuration := 70
 
-;Custom Delay.
-Global Delay := 500
+;Custom Delay Times.
+Global ShortDelay := 500
+Global MediumDelay := 1000
+Global LongDelay := 2000
 
 CFG = GTAV_AHK.ini
 
@@ -361,63 +363,63 @@ return
 ;Game Menu
 JoinOnline:
 Send {ESC}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Right 5}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Up}{Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Down}{Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Enter}
 return
 
 JoinFriends:
 Send {ESC}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Right}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send, {Down}{Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Enter}
 return
 
 JoinCrewMembers:
 Send {ESC}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Right}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Down 2}{Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Enter}
 return
 
 JoinNewSession:
 Send {ESC}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Right}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Up 3}{Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Enter}
 return
 
 ExitGame:
 Send {ESC}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Right}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 Send {Up}{Enter}
-sleep, 2000
+sleep, %LongDelay%
 Send {Enter}
 return
 
@@ -430,11 +432,11 @@ return
 
 VisitorChips:
 Send {e}{Up}{Enter}
-sleep, 1000
+sleep, %MediumDelay%
 Send {e}{Down}{Tab}{Enter}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Enter}
-sleep, 1000
+sleep, %MediumDelay%
 Send {Enter}{Esc}
 return
 
@@ -452,19 +454,19 @@ return
 
 PhoneUp(){
 Send {Up}
-sleep, %Delay% 
+sleep, %ShortDelay% 
 } 
 return
 
 ContactsList(){
 Send {Right}{Up}{Enter}
-sleep, %Delay%
+sleep, %ShortDelay%
 }
 return
 
 InteractionMenu(){
 Send {m}
-sleep, %Delay% 
+sleep, %ShortDelay% 
 } 
 return
 
