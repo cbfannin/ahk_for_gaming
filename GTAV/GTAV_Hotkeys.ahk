@@ -76,7 +76,6 @@ Gui, Add, Hotkey,vJoinOnlineKey,!o
 Gui, Add, Hotkey,vJoinFriendsKey,!f
 Gui, Add, Hotkey,vJoinCrewMembersKey,!c
 Gui, Add, Hotkey,vJoinNewSessionKey,!n
-Gui, Add, Hotkey,vExitGameKey,!e
 
 ;CASINO
 Gui, Add, Text, ym, CASINO
@@ -116,7 +115,6 @@ IniRead,Read_JoinOnlineKey,%CFG%,Hotkeys,Join Online
 IniRead,Read_JoinFriendsKey,%CFG%,Hotkeys,Join Friends
 IniRead,Read_JoinCrewMembersKey,%CFG%,Hotkeys,Join Crew Members
 IniRead,Read_JoinNewSessionKey,%CFG%,Hotkeys,Join New Session
-IniRead,Read_ExitGameKey,%CFG%,Hotkeys,Exit Game
 IniRead,Read_VisitorChipsKey,%CFG%,Hotkeys,Visitor Chips
 IniRead,Read_SpinWheelKey,%CFG%,Hotkeys,Spin Wheel
 IniRead,Read_KillGTAKey,%CFG%,Hotkeys,Kill GTA
@@ -142,7 +140,6 @@ GuiControl,,JoinOnlineKey,%Read_JoinOnlineKey%
 GuiControl,,JoinFriendsKey,%Read_JoinFriendsKey%
 GuiControl,,JoinCrewMembersKey,%Read_JoinCrewMembersKey%
 GuiControl,,JoinNewSessionKey,%Read_JoinNewSessionKey%
-GuiControl,,ExitGameKey,%Read_ExitGameKey%
 GuiControl,,VisitorChipsKey,%Read_VisitorChipsKey%
 GuiControl,,SpinWheelKey,%Read_SpinWheelKey%
 GuiControl,,KillGTAKey,%Read_KillGTAKey%
@@ -178,7 +175,6 @@ IniWrite,%JoinOnlineKey%,%CFG%,Hotkeys,Join Online
 IniWrite,%JoinFriendsKey%,%CFG%,Hotkeys,Join Friends
 IniWrite,%JoinCrewMembersKey%,%CFG%,Hotkeys,Join Crew Members
 IniWrite,%JoinNewSessionKey%,%CFG%,Hotkeys,Join New Session
-IniWrite,%ExitGameKey%,%CFG%,Hotkeys,Exit Game
 IniWrite,%VisitorChipsKey%,%CFG%,Hotkeys,Visitor Chips
 IniWrite,%SpinWheelKey%,%CFG%,Hotkeys,Spin Wheel
 IniWrite,%KillGTAKey%,%CFG%,Hotkeys,Kill GTA
@@ -205,7 +201,6 @@ Hotkey, %JoinOnlineKey%, JoinOnline
 Hotkey, %JoinFriendsKey%, JoinFriends
 Hotkey, %JoinCrewMembersKey%, JoinCrewMembers
 Hotkey, %JoinNewSessionKey%, JoinNewSession
-Hotkey, %ExitGameKey%, ExitGame
 Hotkey, %VisitorChipsKey%, VisitorChips
 Hotkey, %SpinWheelKey%, SpinWheel
 Hotkey, %KillGTAKey%, KillGTA
@@ -408,18 +403,6 @@ Send {Enter}
 sleep, %ShortDelay%
 Send {Up 3}{Enter}
 sleep, %ShortDelay%
-Send {Enter}
-return
-
-ExitGame:
-Send {ESC}
-sleep, %MediumDelay%
-Send {Right}
-sleep, %MediumDelay%
-Send {Enter}
-sleep, %ShortDelay%
-Send {Up}{Enter}
-sleep, %LongDelay%
 Send {Enter}
 return
 
