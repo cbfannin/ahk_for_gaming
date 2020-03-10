@@ -40,13 +40,13 @@ Gui, Add, Text,ym,
 Gui, Add, Hotkey,vRegisterCEOKey,PGUP
 Gui, Add, Hotkey,vRegisterMCKey,PGDN
 Gui, Add, Hotkey,vDisbandKey,End
-Gui, Add, Hotkey,vArmorKey,!r
-Gui, Add, Hotkey,vSnackKey,!s
-Gui, Add, Hotkey,vDropSnackKey,!d
-Gui, Add, Hotkey,vBuzzardKey,!b
-Gui, Add, Hotkey,vPersonalVehicleKey,!v
-Gui, Add, Hotkey,vPersonalAircraftKey,!a
-Gui, Add, Hotkey,vPassiveToggleKey,!t
+Gui, Add, Hotkey,vArmorKey,+r
+Gui, Add, Hotkey,vSnackKey,+s
+Gui, Add, Hotkey,vDropSnackKey,+d
+Gui, Add, Hotkey,vBuzzardKey,+b
+Gui, Add, Hotkey,vPersonalVehicleKey,+v
+Gui, Add, Hotkey,vPersonalAircraftKey,+a
+Gui, Add, Hotkey,vPassiveToggleKey,+t
 
 ;PHONE CALLS
 Gui, Add, Text,ym, SPEED DIAL
@@ -57,12 +57,12 @@ Gui, Add, Text,, Merryweather:
 Gui, Add, Text,, Mors Mutual:
 Gui, Add, Text,, Pegasus:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vLamarKey,!h
-Gui, Add, Hotkey,vLesterKey,!l
-Gui, Add, Hotkey,vMechanicKey,!g
-Gui, Add, Hotkey,vMerryweatherKey,!m
-Gui, Add, Hotkey,vMorsMutualKey,!i
-Gui, Add, Hotkey,vPegasusKey,!p
+Gui, Add, Hotkey,vLamarKey,+h
+Gui, Add, Hotkey,vLesterKey,+l
+Gui, Add, Hotkey,vMechanicKey,+g
+Gui, Add, Hotkey,vMerryweatherKey,+m
+Gui, Add, Hotkey,vMorsMutualKey,+i
+Gui, Add, Hotkey,vPegasusKey,+p
 
 ;GAME MENU
 Gui, Add, Text,ym, GAME MENU
@@ -70,28 +70,29 @@ Gui, Add, Text,, Join Online:
 Gui, Add, Text,, Join Friends:
 Gui, Add, Text,, Join Crew Members:
 Gui, Add, Text,, Join New Session:
-Gui, Add, Text,, Exit Game:
+Gui, Add, Text,, AFK:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vJoinOnlineKey,!o
-Gui, Add, Hotkey,vJoinFriendsKey,!f
-Gui, Add, Hotkey,vJoinCrewMembersKey,!c
-Gui, Add, Hotkey,vJoinNewSessionKey,!n
+Gui, Add, Hotkey,vJoinOnlineKey,+o
+Gui, Add, Hotkey,vJoinFriendsKey,+f
+Gui, Add, Hotkey,vJoinCrewMembersKey,+c
+Gui, Add, Hotkey,vJoinNewSessionKey,+n
+Gui, Add, Hotkey,vAFKKey,+F4
 
 ;CASINO
 Gui, Add, Text, ym, CASINO
 Gui, Add, Text,, Visitor Chips:
 Gui, Add, Text,, Spin Wheel:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vVisitorChipsKey,!4
-Gui, Add, Hotkey,vSpinWheelKey,!w
+Gui, Add, Hotkey,vVisitorChipsKey,+4
+Gui, Add, Hotkey,vSpinWheelKey,+w
 
 ;SERVICES
 Gui, Add, Text,ym, SERVICES
 Gui, Add, Text,, Kill GTA:
-Gui, Add, Text,, Exit Macro:
+Gui, Add, Text,, Exit AHK:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vKillGTAKey,!k
-Gui, Add, Hotkey,vExitKey,!ESC
+Gui, Add, Hotkey,vKillGTAKey,+k
+Gui, Add, Hotkey,vExitKey,+ESC
 
 IfExist,%CFG%
 { 
@@ -115,6 +116,7 @@ IniRead,Read_JoinOnlineKey,%CFG%,Hotkeys,Join Online
 IniRead,Read_JoinFriendsKey,%CFG%,Hotkeys,Join Friends
 IniRead,Read_JoinCrewMembersKey,%CFG%,Hotkeys,Join Crew Members
 IniRead,Read_JoinNewSessionKey,%CFG%,Hotkeys,Join New Session
+IniRead,Read_AFKKey,%CFG%,Hotkeys,AFK
 IniRead,Read_VisitorChipsKey,%CFG%,Hotkeys,Visitor Chips
 IniRead,Read_SpinWheelKey,%CFG%,Hotkeys,Spin Wheel
 IniRead,Read_KillGTAKey,%CFG%,Hotkeys,Kill GTA
@@ -139,7 +141,7 @@ GuiControl,,PegasusKey,%Read_PegasusKey%
 GuiControl,,JoinOnlineKey,%Read_JoinOnlineKey%
 GuiControl,,JoinFriendsKey,%Read_JoinFriendsKey%
 GuiControl,,JoinCrewMembersKey,%Read_JoinCrewMembersKey%
-GuiControl,,JoinNewSessionKey,%Read_JoinNewSessionKey%
+GuiControl,,AFKKey,%Read_AFKKey%
 GuiControl,,VisitorChipsKey,%Read_VisitorChipsKey%
 GuiControl,,SpinWheelKey,%Read_SpinWheelKey%
 GuiControl,,KillGTAKey,%Read_KillGTAKey%
@@ -175,6 +177,7 @@ IniWrite,%JoinOnlineKey%,%CFG%,Hotkeys,Join Online
 IniWrite,%JoinFriendsKey%,%CFG%,Hotkeys,Join Friends
 IniWrite,%JoinCrewMembersKey%,%CFG%,Hotkeys,Join Crew Members
 IniWrite,%JoinNewSessionKey%,%CFG%,Hotkeys,Join New Session
+IniWrite,%AFKKey%,%CFG%,Hotkeys,AFK
 IniWrite,%VisitorChipsKey%,%CFG%,Hotkeys,Visitor Chips
 IniWrite,%SpinWheelKey%,%CFG%,Hotkeys,Spin Wheel
 IniWrite,%KillGTAKey%,%CFG%,Hotkeys,Kill GTA
@@ -201,6 +204,7 @@ Hotkey, %JoinOnlineKey%, JoinOnline
 Hotkey, %JoinFriendsKey%, JoinFriends
 Hotkey, %JoinCrewMembersKey%, JoinCrewMembers
 Hotkey, %JoinNewSessionKey%, JoinNewSession
+Hotkey, %AFKKey%, AFK
 Hotkey, %VisitorChipsKey%, VisitorChips
 Hotkey, %SpinWheelKey%, SpinWheel
 Hotkey, %KillGTAKey%, KillGTA
@@ -404,6 +408,13 @@ sleep, %ShortDelay%
 Send {Up 3}{Enter}
 sleep, %ShortDelay%
 Send {Enter}
+return
+
+AFK:
+Loop 36 {
+send {ESC}
+sleep, 600000
+}
 return
 
 ;CASINO
