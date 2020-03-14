@@ -23,12 +23,16 @@ CFG = GTAV_AHK.ini
 ;Delay between keystrokes and press duration.
 setkeydelay, %KeySendDelay%, %KeyPressDuration%
 
+;Default Modifier
+DefModKey = !
+
 ;Labels & Defaults
 ;INTERACTION MENU
 Gui, Add, Text,, INTERACTION MENU
 Gui, Add, Text,, Register CEO:
 Gui, Add, Text,, Register MC:
-Gui, Add, Text,, Disband:
+Gui, Add, Text,, Disband CEO/MC:
+Gui, Add, Text,, Correct CEO/MC Reg.:
 Gui, Add, Text,, Armor:
 Gui, Add, Text,, Snack:
 Gui, Add, Text,, Drop Snack:
@@ -39,14 +43,15 @@ Gui, Add, Text,, Passive Toggle:
 Gui, Add, Text,ym,
 Gui, Add, Hotkey,vRegisterCEOKey,PGUP
 Gui, Add, Hotkey,vRegisterMCKey,PGDN
+Gui, Add, Hotkey,vCorrectCEOMCKey,End
 Gui, Add, Hotkey,vDisbandKey,End
-Gui, Add, Hotkey,vArmorKey,+r
-Gui, Add, Hotkey,vSnackKey,+s
-Gui, Add, Hotkey,vDropSnackKey,+d
-Gui, Add, Hotkey,vBuzzardKey,+b
-Gui, Add, Hotkey,vPersonalVehicleKey,+v
-Gui, Add, Hotkey,vPersonalAircraftKey,+a
-Gui, Add, Hotkey,vPassiveToggleKey,+t
+Gui, Add, Hotkey,vArmorKey,%DefModKey%r
+Gui, Add, Hotkey,vSnackKey,%DefModKey%s
+Gui, Add, Hotkey,vDropSnackKey,%DefModKey%d
+Gui, Add, Hotkey,vBuzzardKey,%DefModKey%b
+Gui, Add, Hotkey,vPersonalVehicleKey,%DefModKey%v
+Gui, Add, Hotkey,vPersonalAircraftKey,%DefModKey%a
+Gui, Add, Hotkey,vPassiveToggleKey,%DefModKey%t
 
 ;PHONE CALLS
 Gui, Add, Text,ym, SPEED DIAL
@@ -57,12 +62,12 @@ Gui, Add, Text,, Merryweather:
 Gui, Add, Text,, Mors Mutual:
 Gui, Add, Text,, Pegasus:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vLamarKey,+h
-Gui, Add, Hotkey,vLesterKey,+l
-Gui, Add, Hotkey,vMechanicKey,+g
-Gui, Add, Hotkey,vMerryweatherKey,+m
-Gui, Add, Hotkey,vMorsMutualKey,+i
-Gui, Add, Hotkey,vPegasusKey,+p
+Gui, Add, Hotkey,vLamarKey,%DefModKey%h
+Gui, Add, Hotkey,vLesterKey,%DefModKey%l
+Gui, Add, Hotkey,vMechanicKey,%DefModKey%g
+Gui, Add, Hotkey,vMerryweatherKey,%DefModKey%m
+Gui, Add, Hotkey,vMorsMutualKey,%DefModKey%i
+Gui, Add, Hotkey,vPegasusKey,%DefModKey%p
 
 ;GAME MENU
 Gui, Add, Text,ym, GAME MENU
@@ -72,33 +77,34 @@ Gui, Add, Text,, Join Crew Members:
 Gui, Add, Text,, Join New Session:
 Gui, Add, Text,, AFK:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vJoinOnlineKey,+o
-Gui, Add, Hotkey,vJoinFriendsKey,+f
-Gui, Add, Hotkey,vJoinCrewMembersKey,+c
-Gui, Add, Hotkey,vJoinNewSessionKey,+n
-Gui, Add, Hotkey,vAFKKey,+F4
+Gui, Add, Hotkey,vJoinOnlineKey,%DefModKey%o
+Gui, Add, Hotkey,vJoinFriendsKey,%DefModKey%f
+Gui, Add, Hotkey,vJoinCrewMembersKey,%DefModKey%c
+Gui, Add, Hotkey,vJoinNewSessionKey,%DefModKey%n
+Gui, Add, Hotkey,vAFKKey,%DefModKey%F4
 
 ;CASINO
 Gui, Add, Text, ym, CASINO
 Gui, Add, Text,, Visitor Chips:
 Gui, Add, Text,, Spin Wheel:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vVisitorChipsKey,+4
-Gui, Add, Hotkey,vSpinWheelKey,+w
+Gui, Add, Hotkey,vVisitorChipsKey,%DefModKey%4
+Gui, Add, Hotkey,vSpinWheelKey,%DefModKey%w
 
 ;SERVICES
 Gui, Add, Text,ym, SERVICES
 Gui, Add, Text,, Kill GTA:
 Gui, Add, Text,, Exit AHK:
 Gui, Add, Text,ym,
-Gui, Add, Hotkey,vKillGTAKey,+k
-Gui, Add, Hotkey,vExitKey,+ESC
+Gui, Add, Hotkey,vKillGTAKey,%DefModKey%k
+Gui, Add, Hotkey,vExitKey,%DefModKey%ESC
 
 IfExist,%CFG%
 { 
 IniRead,Read_RegisterCEOKey,%CFG%,Hotkeys,Register CEO
 IniRead,Read_RegisterMCKey,%CFG%,Hotkeys,Register MC
 IniRead,Read_DisbandKey,%CFG%,Hotkeys,Disband
+IniRead,Read_CorrectCEOMCKey,%CFG%,Hotkeys,Correct CEO/MC Registration
 IniRead,Read_ArmorKey,%CFG%,Hotkeys,Armor
 IniRead,Read_SnackKey,%CFG%,Hotkeys,Snack
 IniRead,Read_DropSnackKey,%CFG%,Hotkeys,Drop Snack
@@ -125,6 +131,7 @@ IniRead,Read_ExitKey,%CFG%,Hotkeys,Exit
 GuiControl,,RegisterCEOKey,%Read_RegisterCEOKey%
 GuiControl,,RegisterMCKey,%Read_RegisterMCKey%
 GuiControl,,DisbandKey,%Read_DisbandKey%
+GuiControl,,CorrectCEOMCKey,%Read_CorrectCEOMCKey%
 GuiControl,,ArmorKey,%Read_ArmorKey%
 GuiControl,,SnackKey,%Read_SnackKey%
 GuiControl,,DropSnackKey,%Read_DropSnackKey%
