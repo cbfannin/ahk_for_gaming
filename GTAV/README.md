@@ -1,6 +1,12 @@
 # GTAV Online AHK
 **This documentation contains information on commonly used hotkeys that interact with the GTAO.**
-__Requirements:__ [https://www.autohotkey.com/](https://www.autohotkey.com/)
+## How to Use
+1. Install [https://www.autohotkey.com/](https://www.autohotkey.com/)
+1. Place GATV_Hotkeys.ahk somewhere on your computer, preferably in a folder since compiling will create additional files.
+1. Right click on GTAV_Hotkeys.ahk and click Compile Script. This will create a GTAV_Hotkeys.exe.
+1. Start GTAV
+1. Right click on GTAV_Hotkeys.exe and run as administrator.
+1. Click Save on the dialog that pops up and enjoy easier access to commonly used actions.
 Default Modifier Key [mk]: Left Alt
 ## Interaction Menu
 ### Register CEO: PgUp
