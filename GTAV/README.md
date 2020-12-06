@@ -7,6 +7,7 @@
 1. Start GTAV
 1. Right click on GTAV_Hotkeys.exe and run as administrator.
 1. Click Save on the dialog that pops up and enjoy easier access to commonly used actions.
+
 Default Modifier Key [mk]: Left Alt
 ## Interaction Menu
 ### Register CEO: PgUp
@@ -74,3 +75,6 @@ Default Modifier Key [mk]: Left Alt
 **Notes:**
 * This will end the GTA processes closing the game. Be sure your progress is saved.
 ### Exit AHK: [mk] + Esc
+
+## IMPORTANT
+Anytime GTAV is restarted, you will also need to restart AHK as it loses connection with the application and will no longer work.
