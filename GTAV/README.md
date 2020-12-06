@@ -63,7 +63,7 @@ Default Modifier Key [mk]: Left Alt
 * This is an alternative to having to get to a property to jump on the security cameras.
 * This is best used if you intend to be away for at least 6 hours (like while you sleep) since there is no way to cancel the process.
 ## Casino
-### Visitor Chips: [mk] + 4 ($ Sign)
+### Visitor Chips: [mk] + 4 (4 is for $ Sign)
 * Walk up to the casino clerk until you are prompted for help, then press the hotkeys.
 * This will get your daily $1k chips and cash them in.
 ### Spin Wheel: [mk] + W
