@@ -32,7 +32,6 @@ Gui, Add, Text,, INTERACTION MENU
 Gui, Add, Text,, Register CEO:
 Gui, Add, Text,, Register MC:
 Gui, Add, Text,, Disband CEO/MC:
-Gui, Add, Text,, Correct CEO/MC Reg.:
 Gui, Add, Text,, Armor:
 Gui, Add, Text,, Snack:
 Gui, Add, Text,, Drop Snack:
@@ -43,7 +42,6 @@ Gui, Add, Text,, Passive Toggle:
 Gui, Add, Text,ym,
 Gui, Add, Hotkey,vRegisterCEOKey,PGUP
 Gui, Add, Hotkey,vRegisterMCKey,PGDN
-Gui, Add, Hotkey,vCorrectCEOMCKey,End
 Gui, Add, Hotkey,vDisbandKey,End
 Gui, Add, Hotkey,vArmorKey,%DefModKey%r
 Gui, Add, Hotkey,vSnackKey,%DefModKey%s
@@ -104,7 +102,6 @@ IfExist,%CFG%
 IniRead,Read_RegisterCEOKey,%CFG%,Hotkeys,Register CEO
 IniRead,Read_RegisterMCKey,%CFG%,Hotkeys,Register MC
 IniRead,Read_DisbandKey,%CFG%,Hotkeys,Disband
-IniRead,Read_CorrectCEOMCKey,%CFG%,Hotkeys,Correct CEO/MC Registration
 IniRead,Read_ArmorKey,%CFG%,Hotkeys,Armor
 IniRead,Read_SnackKey,%CFG%,Hotkeys,Snack
 IniRead,Read_DropSnackKey,%CFG%,Hotkeys,Drop Snack
@@ -131,7 +128,6 @@ IniRead,Read_ExitKey,%CFG%,Hotkeys,Exit
 GuiControl,,RegisterCEOKey,%Read_RegisterCEOKey%
 GuiControl,,RegisterMCKey,%Read_RegisterMCKey%
 GuiControl,,DisbandKey,%Read_DisbandKey%
-GuiControl,,CorrectCEOMCKey,%Read_CorrectCEOMCKey%
 GuiControl,,ArmorKey,%Read_ArmorKey%
 GuiControl,,SnackKey,%Read_SnackKey%
 GuiControl,,DropSnackKey,%Read_DropSnackKey%
@@ -226,6 +222,7 @@ return
 OrgStatus = false
 CEO = false
 MC = false
+PersonalVehicle = false
 
 RegisterCEO:
 if (!%OrgStatus% || %MC%) {
@@ -308,10 +305,25 @@ return
 
 PersonalVehicle:
 InteractionMenu()
-if (%OrgStatus%) {
-Send {Down 5}{Enter}{Enter}{m}
-} else {
-Send {Down 4}{Enter}{Enter}{m}
+switch %OrgStatus% {
+  case true:
+    if (%PersonalVehicle%) {
+      Send {Down 1}
+      ReturnVehicle()
+	  PersonalVehicle = false
+    } else {
+      Send {Down 1}
+      GetVehicle()
+	  PersonalVehicle = true
+    }
+  default:
+	if (!%PersonalVehicle%) {
+      GetVehicle()
+	  PersonalVehicle = true
+    } else {
+      ReturnVehicle()
+	  PersonalVehicle = false
+    }
 }
 return
 
@@ -469,6 +481,16 @@ InteractionMenu(){
 Send {m}
 sleep, %ShortDelay% 
 } 
+return
+
+ReturnVehicle(){
+Send {Down 4}{Enter}{Down 4}{Enter}{m}
+}
+return
+
+GetVehicle(){
+Send {Down 4}{Enter}{Enter}{m}
+}
 return
 
 ;Services
