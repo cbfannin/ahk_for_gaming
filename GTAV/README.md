@@ -1,5 +1,5 @@
 # GTAV Online AHK
-**This documentation contains information on commonly used hotkeys that interact with the GTAO.**
+**This documentation contains information on commonly used hotkeys that interact with GTAO.**
 ## How to Use
 1. Install [https://www.autohotkey.com/](https://www.autohotkey.com/)
 1. Place GTAV_Hotkeys.ahk somewhere on your computer, preferably in a folder since compiling will create additional files.
