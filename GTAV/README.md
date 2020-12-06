@@ -8,7 +8,14 @@
 1. Right click on GTAV_Hotkeys.exe and run as administrator.
 1. Click Save on the dialog that pops up and enjoy easier access to commonly used actions.
 
-Default Modifier Key [mk]: Left Alt
+
+
+
+**Default Modifier Key [mk]: Left Alt**
+
+
+
+
 ## Interaction Menu
 ### Register CEO: PgUp
 **Notes:**
@@ -45,6 +52,10 @@ Default Modifier Key [mk]: Left Alt
 ### Passive Toggle: [mk] + T (T is for Toggle)
 **Notes:**
 * Toggles passive mode on and off.
+
+
+
+
 ## Speed Dial
 ### Lamar: [mk] + H (H is for Homie)
 ### Lester: [mk] + L
@@ -52,6 +63,10 @@ Default Modifier Key [mk]: Left Alt
 ### Merryweather: [mk] + M
 ### Mors Mutual: [mk] + I (I is for Insurance)
 ### Pegasus: [mk] + P
+
+
+
+
 ## Game Menu
 ### Join Online: [mk] + O
 ### Join Friends: [mk] + F
@@ -62,19 +77,31 @@ Default Modifier Key [mk]: Left Alt
 * This will allow you to step away from your computer for 6 hours without being kicked.
 * This is an alternative to having to get to a property to jump on the security cameras.
 * This is best used if you intend to be away for at least 6 hours (like while you sleep) since there is no way to cancel the process.
+
+
+
+
 ## Casino
 ### Visitor Chips: [mk] + 4 (4 is for $ Sign)
+**Notes:**
 * Walk up to the casino clerk until you are prompted for help, then press the hotkeys.
 * This will get your daily $1k chips and cash them in.
 ### Spin Wheel: [mk] + W
 **Notes:**
 * Walk up to the wheel until you get the prompt to spin, then press the hotkeys.
 * If you are going for a specific item on the wheel and see that you are not going to get it, you can use the Kill GTA ([mk] + K]) hotkey to close GTAV so you can restart and try again. You must do this before the spin completes and prompts you with what you've won.
+
+
+
+
 ## Services
 ### Kill GTA: [mk] + K
 **Notes:**
 * This will end the GTA processes closing the game. Be sure your progress is saved.
 ### Exit AHK: [mk] + Esc
+
+
+
 
 ## IMPORTANT
 Anytime GTAV is restarted, you will also need to restart AHK as it loses connection with the application and will no longer work.
