@@ -83,6 +83,7 @@
 
 ## Casino
 ### Visitor Chips: [mk] + 4 (4 is for $ Sign)
+**Notes:**
 * Walk up to the casino clerk until you are prompted for help, then press the hotkeys.
 * This will get your daily $1k chips and cash them in.
 ### Spin Wheel: [mk] + W
