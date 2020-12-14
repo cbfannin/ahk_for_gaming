@@ -43,12 +43,12 @@
 * If you are not registered as a CEO and you own a Buzzard, it will be called and placed at the nearest ~~convenient~~ inconvenient location.
 ### Personal Vehicle: [mk] + V
 **Notes:**
-* This will retrieve and return you personal vehicle.
+* This will retrieve and return your personal vehicle.
 * This will also return your personal aircraft.
 ### Personal Aircraft: [mk] + A
 **Notes:**
 * This will drop you in the personal aircraft selection menu for you to choose the aircraft you want.
-* You can use the Personal Vehicle shortcut ([mk] + V) to return your personal aircraft. 
+* You can use the Personal Vehicle hotkey ([mk] + V) to return your personal aircraft. 
 ### Passive Toggle: [mk] + T (T is for Toggle)
 **Notes:**
 * Toggles passive mode on and off.
@@ -60,6 +60,8 @@
 ### Lamar: [mk] + H (H is for Homie)
 ### Lester: [mk] + L
 ### Mechanic: [mk] + G (G is for Garage)
+**Notes**
+* When you call the mechanic it is assumed you are requesting a persnoal vehicle. This sets your Personal Vehicle as being checked out allowing you to use the Personal Vehicle hotkey ([mk] + V) to return it.
 ### Merryweather: [mk] + M
 ### Mors Mutual: [mk] + I (I is for Insurance)
 ### Pegasus: [mk] + P
@@ -89,7 +91,7 @@
 ### Spin Wheel: [mk] + W
 **Notes:**
 * Walk up to the wheel until you get the prompt to spin, then press the hotkeys.
-* If you are going for a specific item on the wheel and see that you are not going to get it, you can use the Kill GTA ([mk] + K]) hotkey to close GTAV so you can restart and try again. You must do this before the spin completes and prompts you with what you've won.
+* If you are going for a specific item on the wheel and see that you are not going to get it, you can use the Kill GTA hotkey ([mk] + K]) to close GTAV so you can restart and try again. You must do this before the spin completes and prompts you with what you've won.
 
 
 
@@ -104,4 +106,4 @@
 
 
 ## IMPORTANT
-Anytime GTAV is restarted, you will also need to restart AHK as it loses connection with the application and will no longer work.
+Anytime GTAV is shutdown, you will also need to shutdown the script and restart it as it loses connection with the application and will no longer work.
