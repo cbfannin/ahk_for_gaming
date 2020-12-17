@@ -357,13 +357,14 @@ return
 Mechanic:
 PhoneUp()
 ContactsList()
-Send {Left 2}{Up 2}{Enter}
+Send {Left 2}{Up 3}{Enter}
+PersonalVehicle = True
 return
 
 Merryweather:
 PhoneUp()
 ContactsList()
-Send {Left 2}{Up}{Enter}
+Send {Left 2}{Up 2}{Enter}
 return	
 
 MorsMutual:
@@ -375,7 +376,7 @@ return
 Pegasus:
 PhoneUp()
 ContactsList()
-Send {Up 7}{Enter}
+Send {Up 8}{Enter}
 return
 
 ;Game Menu
