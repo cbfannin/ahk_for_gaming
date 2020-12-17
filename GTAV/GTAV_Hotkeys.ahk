@@ -92,10 +92,8 @@ Gui, Add, Hotkey,vSpinWheelKey,%DefModKey%w
 ;SERVICES
 Gui, Add, Text,ym, SERVICES
 Gui, Add, Text,, Kill GTA:
-Gui, Add, Text,, Exit AHK:
 Gui, Add, Text,ym,
 Gui, Add, Hotkey,vKillGTAKey,%DefModKey%k
-Gui, Add, Hotkey,vExitKey,%DefModKey%ESC
 
 IfExist,%CFG%
 { 
@@ -123,7 +121,6 @@ IniRead,Read_AFKKey,%CFG%,Hotkeys,AFK
 IniRead,Read_VisitorChipsKey,%CFG%,Hotkeys,Visitor Chips
 IniRead,Read_SpinWheelKey,%CFG%,Hotkeys,Spin Wheel
 IniRead,Read_KillGTAKey,%CFG%,Hotkeys,Kill GTA
-IniRead,Read_ExitKey,%CFG%,Hotkeys,Exit
 
 GuiControl,,RegisterCEOKey,%Read_RegisterCEOKey%
 GuiControl,,RegisterMCKey,%Read_RegisterMCKey%
@@ -148,7 +145,6 @@ GuiControl,,AFKKey,%Read_AFKKey%
 GuiControl,,VisitorChipsKey,%Read_VisitorChipsKey%
 GuiControl,,SpinWheelKey,%Read_SpinWheelKey%
 GuiControl,,KillGTAKey,%Read_KillGTAKey%
-GuiControl,,ExitKey,%Read_ExitKey%
 }
 
 Gui, Add, Button, gsave, save
@@ -184,7 +180,6 @@ IniWrite,%AFKKey%,%CFG%,Hotkeys,AFK
 IniWrite,%VisitorChipsKey%,%CFG%,Hotkeys,Visitor Chips
 IniWrite,%SpinWheelKey%,%CFG%,Hotkeys,Spin Wheel
 IniWrite,%KillGTAKey%,%CFG%,Hotkeys,Kill GTA
-IniWrite,%ExitKey%,%CFG%,Hotkeys,Exit
 }
 
 Hotkey, %RegisterCEOKey%, RegisterCEO
@@ -211,7 +206,6 @@ Hotkey, %AFKKey%, AFK
 Hotkey, %VisitorChipsKey%, VisitorChips
 Hotkey, %SpinWheelKey%, SpinWheel
 Hotkey, %KillGTAKey%, KillGTA
-Hotkey, %ExitKey%, Exitlabel
 
 return
 
@@ -468,7 +462,7 @@ return
 
 PhoneUp(){
 Send {Up}
-sleep, %ShortDelay% 
+sleep, %ShortDelay%
 } 
 return
 
@@ -497,8 +491,5 @@ return
 ;Services
 KillGTA:
 Run tskill gta5
-Return
-
-Exitlabel:
 ExitApp
-return
+Return
