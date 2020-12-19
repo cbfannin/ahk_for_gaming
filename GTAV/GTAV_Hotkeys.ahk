@@ -364,13 +364,13 @@ return
 MorsMutual:
 PhoneUp()
 ContactsList()
-Send {Left 2}{Enter}
+Send {Left 2}{Up}{Enter}
 return	
 
 Pegasus:
 PhoneUp()
 ContactsList()
-Send {Up 8}{Enter}
+Send {Left 2}{Down 3}{Enter}
 return
 
 ;Game Menu
