@@ -269,7 +269,7 @@ Send {Down 3}{Enter}{Down 2}{Enter}
 } else {
 Send {Down 2}{Enter}{Down 2}{Enter}   
 }
-Send {Down}{Enter 2}
+Send {Enter}
 return
 
 Buzzard:
