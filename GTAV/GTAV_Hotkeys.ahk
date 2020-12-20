@@ -39,17 +39,19 @@ Gui, Add, Text,, Buzzard:
 Gui, Add, Text,, Personal Vehicle:
 Gui, Add, Text,, Personal Aircraft:
 Gui, Add, Text,, Passive Toggle:
+Gui, Add, Text,, Services:
 Gui, Add, Text,ym,
 Gui, Add, Hotkey,vRegisterCEOKey,PGUP
 Gui, Add, Hotkey,vRegisterMCKey,PGDN
 Gui, Add, Hotkey,vDisbandKey,End
 Gui, Add, Hotkey,vArmorKey,%DefModKey%r
-Gui, Add, Hotkey,vSnackKey,%DefModKey%s
+Gui, Add, Hotkey,vSnackKey,%DefModKey%e
 Gui, Add, Hotkey,vDropSnackKey,%DefModKey%d
 Gui, Add, Hotkey,vBuzzardKey,%DefModKey%b
 Gui, Add, Hotkey,vPersonalVehicleKey,%DefModKey%v
 Gui, Add, Hotkey,vPersonalAircraftKey,%DefModKey%a
 Gui, Add, Hotkey,vPassiveToggleKey,%DefModKey%t
+Gui, Add, Hotkey,vServicesKey,%DefModKey%s
 
 ;PHONE CALLS
 Gui, Add, Text,ym, SPEED DIAL
@@ -106,6 +108,7 @@ IniRead,Read_BuzzardKey,%CFG%,Hotkeys,Buzzard
 IniRead,Read_PersonalVehicleKey,%CFG%,Hotkeys,Personal Vehicle
 IniRead,Read_PersonalAircraftKey,%CFG%,Hotkeys,Personal Aircraft
 IniRead,Read_PassiveToggleKey,%CFG%,Hotkeys,Passive Toggle
+IniRead,Read_ServicesKey,%CFG%,Hotkeys,Services
 IniRead,Read_LamarKey,%CFG%,Hotkeys,Lamar
 IniRead,Read_LesterKey,%CFG%,Hotkeys,Lester
 IniRead,Read_MechanicKey,%CFG%,Hotkeys,Mechanic
@@ -130,6 +133,7 @@ GuiControl,,BuzzardKey,%Read_BuzzardKey%
 GuiControl,,PersonalVehicleKey,%Read_PersonalVehicleKey%
 GuiControl,,PersonalAircraftKey,%Read_PersonalAircraftKey%
 GuiControl,,PassiveToggleKey,%Read_PassiveToggleKey%
+GuiControl,,ServicesKey,%Read_ServicesKey%
 GuiControl,,LesterKey,%Read_LesterKey%
 GuiControl,,LamarKey,%Read_LamarKey%
 GuiControl,,MechanicKey,%Read_MechanicKey%
@@ -163,6 +167,7 @@ IniWrite,%BuzzardKey%,%CFG%,Hotkeys,Buzzard
 IniWrite,%PersonalVehicleKey%,%CFG%,Hotkeys,Personal Vehicle
 IniWrite,%PersonalAircraftKey%,%CFG%,Hotkeys,Personal Aircraft
 IniWrite,%PassiveToggleKey%,%CFG%,Hotkeys,Passive Toggle
+IniWrite,%ServicesKey%,%CFG%,Hotkeys,Services
 IniWrite,%LesterKey%,%CFG%,Hotkeys,Lester
 IniWrite,%LamarKey%,%CFG%,Hotkeys,Lamar
 IniWrite,%MechanicKey%,%CFG%,Hotkeys,Mechanic
@@ -188,6 +193,7 @@ Hotkey, %BuzzardKey%, Buzzard
 Hotkey, %PersonalVehicleKey%, PersonalVehicle
 Hotkey, %PersonalAircraftKey%, PersonalAircraft
 Hotkey, %PassiveToggleKey%, PassiveToggle
+Hotkey, %ServicesKey%, Services
 Hotkey, %LamarKey%, Lamar
 Hotkey, %LesterKey%, Lester
 Hotkey, %MechanicKey%, Mechanic
@@ -343,6 +349,16 @@ return
 PassiveToggle:
 InteractionMenu()
 Send {Up}{Enter}{m}
+return
+
+Services:
+InteractionMenu()
+switch %OrgStatus% {
+  case true:
+    Send {Down 6}{Enter}
+  default:
+    send {Down 5}{Enter}
+}
 return
 
 ;Phone Calls
