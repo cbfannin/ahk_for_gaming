@@ -37,13 +37,11 @@
 ### Snack: [mk] + E (E is for Eat)
 **Notes:**
 * This shortcut will drop you in to your snack selection menu and consume one snack without exiting for you to consume more if necessary.
-* It is best to be in cover while consuming your snacks.
-* Aiming down sight while consuming snacks will enable you to consume snacks immediately without going through the animation of eating or drinking.
+* It is best to be aiming down sight while consuming snacks as they will be consumed immediately rather than going through an animation.
 * While in your snack menu you can also drop snacks for teammates.
 ### CEO Buzzard: [mk] + B
 **Notes:**
 * If you are registered as a CEO, your CEO Buzzard will be called and placed near by immediately.
-* If you are not registered as a CEO and ahve the ability to become one, you will be regsitered and then the Buzzard will be retrieved.
 * If you do not have the ability to become a CEO, look at the Personal Aircraft hotkey for other options.
 ### Personal Vehicle: [mk] + V
 **Notes:**
