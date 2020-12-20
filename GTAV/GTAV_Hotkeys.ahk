@@ -34,7 +34,7 @@ Gui, Add, Text,, Register MC:
 Gui, Add, Text,, Disband CEO/MC:
 Gui, Add, Text,, Armor:
 Gui, Add, Text,, Snack:
-Gui, Add, Text,, Buzzard:
+Gui, Add, Text,, CEO Buzzard:
 Gui, Add, Text,, Personal Vehicle:
 Gui, Add, Text,, Personal Aircraft:
 Gui, Add, Text,, Passive Toggle:
@@ -45,7 +45,7 @@ Gui, Add, Hotkey,vRegisterMCKey,PGDN
 Gui, Add, Hotkey,vDisbandKey,End
 Gui, Add, Hotkey,vArmorKey,%DefModKey%r
 Gui, Add, Hotkey,vSnackKey,%DefModKey%e
-Gui, Add, Hotkey,vBuzzardKey,%DefModKey%b
+Gui, Add, Hotkey,vCEOBuzzardKey,%DefModKey%b
 Gui, Add, Hotkey,vPersonalVehicleKey,%DefModKey%v
 Gui, Add, Hotkey,vPersonalAircraftKey,%DefModKey%a
 Gui, Add, Hotkey,vPassiveToggleKey,%DefModKey%t
@@ -101,7 +101,7 @@ IniRead,Read_RegisterMCKey,%CFG%,Hotkeys,Register MC
 IniRead,Read_DisbandKey,%CFG%,Hotkeys,Disband
 IniRead,Read_ArmorKey,%CFG%,Hotkeys,Armor
 IniRead,Read_SnackKey,%CFG%,Hotkeys,Snack
-IniRead,Read_BuzzardKey,%CFG%,Hotkeys,Buzzard
+IniRead,Read_CEOBuzzardKey,%CFG%,Hotkeys,CEO Buzzard
 IniRead,Read_PersonalVehicleKey,%CFG%,Hotkeys,Personal Vehicle
 IniRead,Read_PersonalAircraftKey,%CFG%,Hotkeys,Personal Aircraft
 IniRead,Read_PassiveToggleKey,%CFG%,Hotkeys,Passive Toggle
@@ -125,7 +125,7 @@ GuiControl,,RegisterMCKey,%Read_RegisterMCKey%
 GuiControl,,DisbandKey,%Read_DisbandKey%
 GuiControl,,ArmorKey,%Read_ArmorKey%
 GuiControl,,SnackKey,%Read_SnackKey%
-GuiControl,,BuzzardKey,%Read_BuzzardKey%
+GuiControl,,CEOBuzzardKey,%Read_CEOBuzzardKey%
 GuiControl,,PersonalVehicleKey,%Read_PersonalVehicleKey%
 GuiControl,,PersonalAircraftKey,%Read_PersonalAircraftKey%
 GuiControl,,PassiveToggleKey,%Read_PassiveToggleKey%
@@ -158,7 +158,7 @@ IniWrite,%RegisterMCKey%,%CFG%,Hotkeys,Register MC
 IniWrite,%DisbandKey%,%CFG%,Hotkeys,Disband
 IniWrite,%ArmorKey%,%CFG%,Hotkeys,Armor
 IniWrite,%SnackKey%,%CFG%,Hotkeys,Snack
-IniWrite,%BuzzardKey%,%CFG%,Hotkeys,Buzzard
+IniWrite,%CEOBuzzardKey%,%CFG%,Hotkeys,CEO Buzzard
 IniWrite,%PersonalVehicleKey%,%CFG%,Hotkeys,Personal Vehicle
 IniWrite,%PersonalAircraftKey%,%CFG%,Hotkeys,Personal Aircraft
 IniWrite,%PassiveToggleKey%,%CFG%,Hotkeys,Passive Toggle
@@ -183,7 +183,7 @@ Hotkey, %RegisterMCKey%, RegisterMC
 Hotkey, %DisbandKey%, Disband
 Hotkey, %ArmorKey%, SuperHeavyArmor
 Hotkey, %SnackKey%, Snack
-Hotkey, %BuzzardKey%, Buzzard
+Hotkey, %CEOBuzzardKey%, CEOBuzzard
 Hotkey, %PersonalVehicleKey%, PersonalVehicle
 Hotkey, %PersonalAircraftKey%, PersonalAircraft
 Hotkey, %PassiveToggleKey%, PassiveToggle
@@ -272,14 +272,11 @@ Send {Down 2}{Enter}{Down 2}{Enter}
 Send {Enter}
 return
 
-Buzzard:
+CEOBuzzard:
 InteractionMenu()
-if (%OrgStatus%) {
+if (%CEO%) {
 Send {Enter}{Up 2}{Enter}
 Send {Left 3}{Down 4}{Enter}
-} else {
-PersonalAircraft()
-PersonalVehicle = true
 }
 return
 
