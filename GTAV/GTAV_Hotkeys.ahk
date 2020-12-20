@@ -365,13 +365,13 @@ return
 Lamar:
 PhoneUp()
 ContactsList()
-Send {Left 3}{Up 3}{Enter}
+Send {Left 4}{Down 1}{Enter}
 return
 
 Lester:
 PhoneUp()
 ContactsList()
-Send {Left 3}{Up}{Enter}
+Send {Left 4}{Down 3}{Enter}
 return
 
 Mechanic:
