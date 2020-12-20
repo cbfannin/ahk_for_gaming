@@ -33,7 +33,7 @@
 ### Armor: [mk] + R
 **Notes:**
 * This shortcut only works if you have heavy armor.
-### Snack: [mk] + S
+### Snack: [mk] + E (E is for Eat)
 **Notes:**
 * It is best to avoid having cigarettes in your snack inventory to avoid losing health rather than gaining it.
 ### Drop Snack: [mk] + D
@@ -54,6 +54,9 @@
 ### Passive Toggle: [mk] + T (T is for Toggle)
 **Notes:**
 * Toggles passive mode on and off.
+### Services: [mk] + S
+**Notes:**
+* Will drop you in the services menu for MOC, Terrorbyte, Kotaska, etc.
 
 
 
