@@ -34,7 +34,6 @@ Gui, Add, Text,, Register MC:
 Gui, Add, Text,, Disband CEO/MC:
 Gui, Add, Text,, Armor:
 Gui, Add, Text,, Snack:
-Gui, Add, Text,, Drop Snack:
 Gui, Add, Text,, Buzzard:
 Gui, Add, Text,, Personal Vehicle:
 Gui, Add, Text,, Personal Aircraft:
@@ -46,7 +45,6 @@ Gui, Add, Hotkey,vRegisterMCKey,PGDN
 Gui, Add, Hotkey,vDisbandKey,End
 Gui, Add, Hotkey,vArmorKey,%DefModKey%r
 Gui, Add, Hotkey,vSnackKey,%DefModKey%e
-Gui, Add, Hotkey,vDropSnackKey,%DefModKey%d
 Gui, Add, Hotkey,vBuzzardKey,%DefModKey%b
 Gui, Add, Hotkey,vPersonalVehicleKey,%DefModKey%v
 Gui, Add, Hotkey,vPersonalAircraftKey,%DefModKey%a
@@ -103,7 +101,6 @@ IniRead,Read_RegisterMCKey,%CFG%,Hotkeys,Register MC
 IniRead,Read_DisbandKey,%CFG%,Hotkeys,Disband
 IniRead,Read_ArmorKey,%CFG%,Hotkeys,Armor
 IniRead,Read_SnackKey,%CFG%,Hotkeys,Snack
-IniRead,Read_DropSnackKey,%CFG%,Hotkeys,Drop Snack
 IniRead,Read_BuzzardKey,%CFG%,Hotkeys,Buzzard
 IniRead,Read_PersonalVehicleKey,%CFG%,Hotkeys,Personal Vehicle
 IniRead,Read_PersonalAircraftKey,%CFG%,Hotkeys,Personal Aircraft
@@ -128,7 +125,6 @@ GuiControl,,RegisterMCKey,%Read_RegisterMCKey%
 GuiControl,,DisbandKey,%Read_DisbandKey%
 GuiControl,,ArmorKey,%Read_ArmorKey%
 GuiControl,,SnackKey,%Read_SnackKey%
-GuiControl,,DropSnackKey,%Read_DropSnackKey%
 GuiControl,,BuzzardKey,%Read_BuzzardKey%
 GuiControl,,PersonalVehicleKey,%Read_PersonalVehicleKey%
 GuiControl,,PersonalAircraftKey,%Read_PersonalAircraftKey%
@@ -162,7 +158,6 @@ IniWrite,%RegisterMCKey%,%CFG%,Hotkeys,Register MC
 IniWrite,%DisbandKey%,%CFG%,Hotkeys,Disband
 IniWrite,%ArmorKey%,%CFG%,Hotkeys,Armor
 IniWrite,%SnackKey%,%CFG%,Hotkeys,Snack
-IniWrite,%DropSnackKey%,%CFG%,Hotkeys,Drop Snack
 IniWrite,%BuzzardKey%,%CFG%,Hotkeys,Buzzard
 IniWrite,%PersonalVehicleKey%,%CFG%,Hotkeys,Personal Vehicle
 IniWrite,%PersonalAircraftKey%,%CFG%,Hotkeys,Personal Aircraft
@@ -188,7 +183,6 @@ Hotkey, %RegisterMCKey%, RegisterMC
 Hotkey, %DisbandKey%, Disband
 Hotkey, %ArmorKey%, SuperHeavyArmor
 Hotkey, %SnackKey%, Snack
-Hotkey, %DropSnackKey%, DropSnack
 Hotkey, %BuzzardKey%, Buzzard
 Hotkey, %PersonalVehicleKey%, PersonalVehicle
 Hotkey, %PersonalAircraftKey%, PersonalAircraft
@@ -275,17 +269,7 @@ Send {Down 3}{Enter}{Down 2}{Enter}
 } else {
 Send {Down 2}{Enter}{Down 2}{Enter}   
 }
-Send {Down}{Enter 2}{m}
-return
-
-DropSnack:
-InteractionMenu()
-if (%OrgStatus%) {
-Send {Down 3}{Enter}{Down 2}{Enter}
-} else {
-Send {Down 2}{Enter}{Down 2}{Enter}   
-}
-Send {Down}{Del}{m} 
+Send {Down}{Enter 2}
 return
 
 Buzzard:
