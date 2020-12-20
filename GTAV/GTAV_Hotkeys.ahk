@@ -79,7 +79,6 @@ Gui, Add, Hotkey,vJoinOnlineKey,%DefModKey%o
 Gui, Add, Hotkey,vJoinFriendsKey,%DefModKey%f
 Gui, Add, Hotkey,vJoinCrewMembersKey,%DefModKey%c
 Gui, Add, Hotkey,vJoinNewSessionKey,%DefModKey%n
-Gui, Add, Hotkey,vAFKKey,%DefModKey%F4
 
 ;CASINO
 Gui, Add, Text, ym, CASINO
@@ -117,7 +116,6 @@ IniRead,Read_JoinOnlineKey,%CFG%,Hotkeys,Join Online
 IniRead,Read_JoinFriendsKey,%CFG%,Hotkeys,Join Friends
 IniRead,Read_JoinCrewMembersKey,%CFG%,Hotkeys,Join Crew Members
 IniRead,Read_JoinNewSessionKey,%CFG%,Hotkeys,Join New Session
-IniRead,Read_AFKKey,%CFG%,Hotkeys,AFK
 IniRead,Read_VisitorChipsKey,%CFG%,Hotkeys,Visitor Chips
 IniRead,Read_SpinWheelKey,%CFG%,Hotkeys,Spin Wheel
 IniRead,Read_KillGTAKey,%CFG%,Hotkeys,Kill GTA
@@ -141,7 +139,6 @@ GuiControl,,PegasusKey,%Read_PegasusKey%
 GuiControl,,JoinOnlineKey,%Read_JoinOnlineKey%
 GuiControl,,JoinFriendsKey,%Read_JoinFriendsKey%
 GuiControl,,JoinCrewMembersKey,%Read_JoinCrewMembersKey%
-GuiControl,,AFKKey,%Read_AFKKey%
 GuiControl,,VisitorChipsKey,%Read_VisitorChipsKey%
 GuiControl,,SpinWheelKey,%Read_SpinWheelKey%
 GuiControl,,KillGTAKey,%Read_KillGTAKey%
@@ -176,7 +173,6 @@ IniWrite,%JoinOnlineKey%,%CFG%,Hotkeys,Join Online
 IniWrite,%JoinFriendsKey%,%CFG%,Hotkeys,Join Friends
 IniWrite,%JoinCrewMembersKey%,%CFG%,Hotkeys,Join Crew Members
 IniWrite,%JoinNewSessionKey%,%CFG%,Hotkeys,Join New Session
-IniWrite,%AFKKey%,%CFG%,Hotkeys,AFK
 IniWrite,%VisitorChipsKey%,%CFG%,Hotkeys,Visitor Chips
 IniWrite,%SpinWheelKey%,%CFG%,Hotkeys,Spin Wheel
 IniWrite,%KillGTAKey%,%CFG%,Hotkeys,Kill GTA
@@ -202,7 +198,6 @@ Hotkey, %JoinOnlineKey%, JoinOnline
 Hotkey, %JoinFriendsKey%, JoinFriends
 Hotkey, %JoinCrewMembersKey%, JoinCrewMembers
 Hotkey, %JoinNewSessionKey%, JoinNewSession
-Hotkey, %AFKKey%, AFK
 Hotkey, %VisitorChipsKey%, VisitorChips
 Hotkey, %SpinWheelKey%, SpinWheel
 Hotkey, %KillGTAKey%, KillGTA
@@ -437,13 +432,6 @@ sleep, %ShortDelay%
 Send {Up 3}{Enter}
 sleep, %ShortDelay%
 Send {Enter}
-return
-
-AFK:
-Loop 36 {
-send {ESC}
-sleep, 600000
-}
 return
 
 ;CASINO
