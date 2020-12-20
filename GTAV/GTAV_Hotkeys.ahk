@@ -211,7 +211,7 @@ return
 OrgStatus = false
 CEO = false
 MC = false
-PersonalVehicle = false
+PersonalRide = false
 
 RegisterCEO:
 if (!%OrgStatus% || %MC%) {
@@ -284,22 +284,25 @@ PersonalVehicle:
 InteractionMenu()
 switch %OrgStatus% {
   case true:
-    if (%PersonalVehicle%) {
-      Send {Down 1}
-      ReturnVehicle()
-	  PersonalVehicle = false
+    Send {Down}
+    if (%PersonalRide%) {
+      PersonalRide()
+	  ReturnRide()
+	  PersonalRide = false
     } else {
-      Send {Down 1}
-      GetVehicle()
-	  PersonalVehicle = true
+      PersonalRide()
+	  Send {Enter}{m}
+	  PersonalRide = true
     }
   default:
-	if (!%PersonalVehicle%) {
-      GetVehicle()
-	  PersonalVehicle = true
+	if (!%PersonalRide%) {
+      PersonalRide()
+	  Send {Enter}{m}
+	  PersonalRide = true
     } else {
-      ReturnVehicle()
-	  PersonalVehicle = false
+      PersonalRide()
+	  ReturnRide()
+	  PersonalRide = false
     }
 }
 return
@@ -308,21 +311,25 @@ PersonalAircraft:
 InteractionMenu()
 switch %OrgStatus% {
   case true:
-    if (%PersonlVehicle%) {
-      Send {Down 5}{Enter}{Down}
-      ReturnVehicle()
-	  PersonalVehicle = false
+    Send {Down}
+    if (%PersonalRide%) {
+      PersonalRide()
+      ReturnRide()
+	  PersonalRide = false
     } else {
-      PersonalAircraft()
-	  PersonalVehicle = true
+      PersonalRide()
+	  Send {Down}{Enter}
+	  PersonalRide = true
     }
   default:
-	if (!%PersonalVehicle%) {
-      PersonalAircraft()
-	  PersonalVehicle = true
+	if (!%PersonalRide%) {
+      PersonalRide()
+	  Send {Down}{Enter}
+	  PersonalRide = true
     } else {
-      ReturnVehicle()
-	  PersonalVehicle = false
+      PersonalRide()
+      ReturnRide()
+	  PersonalRide = false
     }
 }
 return
@@ -455,8 +462,13 @@ Send {Enter}{Up}{Enter}
 }
 return
 
-PersonalAircraft(){
-Send {Down 4}{Enter}{Down}
+PersonalRide(){
+Send {Down 4}{Enter}
+}
+return
+
+ReturnRide(){
+Send {Down 4}{Enter}{m}
 }
 return
 
@@ -476,16 +488,6 @@ InteractionMenu(){
 Send {m}
 sleep, %ShortDelay% 
 } 
-return
-
-ReturnVehicle(){
-Send {Down 4}{Enter}{Down 4}{Enter}{m}
-}
-return
-
-GetVehicle(){
-Send {Down 4}{Enter}{Enter}{m}
-}
 return
 
 ;Services
