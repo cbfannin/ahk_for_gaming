@@ -294,6 +294,7 @@ Send {Enter}{Up 2}{Enter}
 Send {Left 3}{Down 4}{Enter}
 } else {
 PersonalAircraft()
+PersonalVehicle = true
 }
 return
 
@@ -323,10 +324,24 @@ return
 
 PersonalAircraft:
 InteractionMenu()
-if (%OrgStatus%) {
-Send {Down 5}{Enter}{Down}
-} else {
-PersonalAircraft()
+switch %OrgStatus% {
+  case true:
+    if (%PersonlVehicle%) {
+      Send {Down 5}{Enter}{Down}
+      ReturnVehicle()
+	  PersonalVehicle = false
+    } else {
+      PersonalAircraft()
+	  PersonalVehicle = true
+    }
+  default:
+	if (!%PersonalVehicle%) {
+      PersonalAircraft()
+	  PersonalVehicle = true
+    } else {
+      ReturnVehicle()
+	  PersonalVehicle = false
+    }
 }
 return
 
