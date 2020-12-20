@@ -35,8 +35,7 @@
 * This shortcut will drop you in to your armor selection menu.
 ### Snack: [mk] + E (E is for Eat)
 **Notes:**
-* This shortcut will drop you in to your snack selection menu.
-* It is best to avoid having cigarettes in your snack inventory since they does not improve health.
+* This shortcut will drop you in to your snack selection menu and consume one snack without exiting for you to consume more if necessary.
 ### Drop Snack: [mk] + D
 ### Buzzard: [mk] + B
 **Notes:**
