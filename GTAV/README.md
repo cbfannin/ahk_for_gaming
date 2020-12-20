@@ -33,14 +33,16 @@
 ### Armor: [mk] + R
 **Notes:**
 * This shortcut will drop you in to your armor selection menu.
+* It is best to be in cover while upping your armor.
 ### Snack: [mk] + E (E is for Eat)
 **Notes:**
 * This shortcut will drop you in to your snack selection menu and consume one snack without exiting for you to consume more if necessary.
-### Drop Snack: [mk] + D
-### Buzzard: [mk] + B
+* It is best to be aiming down sight while consuming snacks as they will be consumed immediately rather than going through an animation.
+* While in your snack menu you can also drop snacks for teammates.
+### CEO Buzzard: [mk] + B
 **Notes:**
-* If you are registered as a CEO, your CEO Buzzard will be called immediately and placed near by.
-* If you are not registered as a CEO this will drop you in to your personal aircraft selection menu. If you are dropped in to this menu, it is assuemd you are checking out a personal aircraft. To return it use the Personal Vehicle or Personal Aircraft hotkeys.
+* If you are registered as a CEO, your CEO Buzzard will be called and placed near by immediately.
+* If you do not have the ability to become a CEO, look at the Personal Aircraft hotkey for other options.
 ### Personal Vehicle: [mk] + V
 **Notes:**
 * This will retrieve your personal vehicle.
