@@ -1,11 +1,11 @@
 # GTAV Online AHK
-**This documentation contains information on commonly used hotkeys that interact with GTAO.**
+**This documentation contains information on commonly used tasks converted to hotkeys that interact with GTAO.**
 ## How to Use
 1. Install [https://www.autohotkey.com/](https://www.autohotkey.com/)
 1. Place GTAV_Hotkeys.ahk somewhere on your computer, preferably in a folder since compiling will create additional files.
 1. Right click on GTAV_Hotkeys.ahk and click Compile Script. This will create a GTAV_Hotkeys.exe.
 1. Start GTAV
-1. Right click on GTAV_Hotkeys.exe and run as administrator.
+1. Right click on GTAV_Hotkeys.exe and click run as administrator.
 1. Click Save on the dialog that pops up and enjoy easier access to commonly used actions.
 
 
@@ -21,15 +21,15 @@
 **Notes:**
 * This shortcut is designed to be used outside of your properties. While in some properties, the command will not execture properly because the interaction menu is different. If you use it inside and see it not work, just manually register to get back in sync with the script.
 * If you are already registered as a CEO, this command will be ignored.
-* If you are already registered as an MC, your MC will be disbanded and then you will be registered as a CEO. This should be rare as you should avoid being registered as an MC outside of your properties to avoid attacks on your properties.
+* If you are already registered as an MC, your MC will be disbanded and then you will be registered as a CEO. This should be rare as you should avoid being registered as an MC outside of your properties to avoid NPC attacks on your businesses.
 ### Register MC: PgDn
 **Notes:**
-* This shortcut is designed to be used inside of your MC Businesses. This is because it is not recommended to be registered as an MC outside of your properties to avoid attacks on your properties.
+* This shortcut is designed to be used inside of your MC Businesses. This is because it is not recommended to be registered as an MC outside of your properties to avoid NPC attacks on your businesses.
 * If you are already registered as an MC, this command will be ignored.
 * If you are already registered as a CEO, your CEO will be disbanded and then you will be registered as an MC.
 ### Disband CEO/MC: End
 **Notes:**
-* Assumnig you are still in sync with the script, this command will disband either your CEO or MC.
+* This command will disband whichever org you are currently registered under.
 ### Armor: [mk] + R
 **Notes:**
 * This shortcut only works if you have heavy armor.
@@ -40,15 +40,17 @@
 ### Buzzard: [mk] + B
 **Notes:**
 * If you are registered as a CEO, your CEO Buzzard will be called immediately and placed near by.
-* If you are not registered as a CEO and you own a Buzzard, it will be called and placed at the nearest ~~convenient~~ inconvenient location.
+* If you are not registered as a CEO this will drop you in to your personal aircraft selection menu. If you are dropped in to this menu, it is assuemd you are checking out a personal aircraft. To return it use the Personal Vehicle or Personal Aircraft hotkeys.
 ### Personal Vehicle: [mk] + V
 **Notes:**
-* This will retrieve and return your personal vehicle.
-* This will also return your personal aircraft.
+* This will retrieve your personal vehicle.
+* Using it while a personal vehicle is checked out will return it.
+* This will also return your personal aircraft if used while it is checked out.
 ### Personal Aircraft: [mk] + A
 **Notes:**
 * This will drop you in the personal aircraft selection menu for you to choose the aircraft you want.
-* You can use the Personal Vehicle hotkey ([mk] + V) to return your personal aircraft. 
+* Using it while a personal aircraft is checked out will return it.
+* This will also return your personal vehicle if used while it is checked out.
 ### Passive Toggle: [mk] + T (T is for Toggle)
 **Notes:**
 * Toggles passive mode on and off.
@@ -61,7 +63,8 @@
 ### Lester: [mk] + L
 ### Mechanic: [mk] + G (G is for Garage)
 **Notes**
-* When you call the mechanic it is assumed you are requesting a persnoal vehicle. This sets your Personal Vehicle as being checked out allowing you to use the Personal Vehicle hotkey ([mk] + V) to return it.
+* When you call the mechanic it is assumed you are requesting a personal vehicle; Therefore sets your Personal Vehicle as being checked out.
+* To return your Personal Vehicle, use the Personal Vehicle or Personal Aircraft hotkeys.
 ### Merryweather: [mk] + M
 ### Mors Mutual: [mk] + I (I is for Insurance)
 ### Pegasus: [mk] + P
@@ -74,12 +77,6 @@
 ### Join Friends: [mk] + F
 ### Join Crew Members: [mk] + C
 ### Join New Session: [mk] + N
-### AFK: [mk] + F4
-**Notes:**
-* This will allow you to step away from your computer for 6 hours without being kicked.
-* This is an alternative to having to get to a property to jump on the security cameras.
-* This is best used if you intend to be away for at least 6 hours (like while you sleep) since there is no way to cancel the process.
-
 
 
 
@@ -99,11 +96,4 @@
 ## Services
 ### Kill GTA: [mk] + K
 **Notes:**
-* This will end the GTA processes closing the game. Be sure your progress is saved.
-### Exit AHK: [mk] + Esc
-
-
-
-
-## IMPORTANT
-Anytime GTAV is shutdown, you will also need to shutdown the script and restart it as it loses connection with the application and will no longer work.
+* This will end the GTA and the AHK hotkey script. Be sure your progress is saved.
