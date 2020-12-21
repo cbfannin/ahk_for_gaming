@@ -318,13 +318,13 @@ switch %OrgStatus% {
 	  PersonalRide = false
     } else {
       PersonalRide()
-	  Send {Down}{Enter}
+	  Send {Down}
 	  PersonalRide = true
     }
   default:
 	if (!%PersonalRide%) {
       PersonalRide()
-	  Send {Down}{Enter}
+	  Send {Down}
 	  PersonalRide = true
     } else {
       PersonalRide()
